@@ -27,8 +27,6 @@ export class ApplicationBusinessTripLogic {
             console.warn("Нет второго DatePicker");
             return true; // возвращается true, так как проверяется только разница в значениях контролов, а не их пустота
         }
-        console.log(newValue);
-        console.log(anotherDatePicker.params.value);
         if (!newValue || !anotherDatePicker.params.value) {
             console.warn("Один или оба DatePicker'а не имеют значений");
             return true; // см. выше  
