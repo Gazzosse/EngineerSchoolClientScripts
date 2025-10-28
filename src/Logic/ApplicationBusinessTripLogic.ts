@@ -1,3 +1,4 @@
+import { DirectoryDesignerRow } from "@docsvision/webclient/BackOffice/DirectoryDesignerRow";
 import { DateTimePicker, DateTimePickerParams } from "@docsvision/webclient/Platform/DateTimePicker";
 import { TextArea } from "@docsvision/webclient/Platform/TextArea";
 import { TextBox } from "@docsvision/webclient/Platform/TextBox";
@@ -56,20 +57,22 @@ export class ApplicationBusinessTripLogic {
             const startDateControl = layout.controls.tryGet<DateTimePicker>("startDateTimePicker");
             const endDateControl = layout.controls.tryGet<DateTimePicker>("endDateTimePicker");
             const reasonTextAreaControl = layout.controls.tryGet<TextArea>("reasonTextArea");
+            const cityControl = layout.controls.tryGet<DirectoryDesignerRow>("cityDirectoryDesignerRow");
             
             const cardName = nameTextBoxControl.params.value?? "Не указано";
             const creationDate = creationDateControl.params.value? creationDateControl.params.value.toLocaleDateString() : "Не указана";
             const startDate = startDateControl.params.value? startDateControl.params.value.toLocaleDateString() : "Не указана";
             const endDate = endDateControl.params.value? endDateControl.params.value.toLocaleDateString() : "Не указана";
             const reason = reasonTextAreaControl.params.value?? "Не указано";
-            
+            const city = cityControl.params.value? cityControl.params.value.name : "Не указан";
             // Формируем строки для отображения
             const lines = [
                 `Название карточки: ${cardName}`,
                 `Дата создания: ${creationDate}`,
                 `Дата с: ${startDate}`,
                 `Дата по: ${endDate}`,
-                `Основание для поездки: ${reason}`
+                `Основание для поездки: ${reason}`,
+                `Город: ${city}`
             ].join('\n');
             
             await messageBoxSvc.showInfo(lines, "Информация по карточке");
