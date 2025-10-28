@@ -36,9 +36,9 @@ export class ApplicationBusinessTripLogic {
         const anotherDate = new Date(anotherDatePicker.params.value).setHours(0,0,0,0);
 
         if (isStartDate)
-            return currentDate < anotherDate;
+            return currentDate <= anotherDate;
         else
-            return currentDate > anotherDate;
+            return currentDate >= anotherDate;
     }
 
     public async showDateWarningMessage(layout:ILayout) {
