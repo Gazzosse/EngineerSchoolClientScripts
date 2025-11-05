@@ -142,7 +142,7 @@ export class ApplicationBusinessTripLogic {
         else {
             diffTime = currentDate - anotherDate;
         }
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
 
         const durationNumberControl = sender.layout.controls.tryGet<NumberControl>("durationNumber");
         if (durationNumberControl)
