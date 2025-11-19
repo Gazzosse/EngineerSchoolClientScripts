@@ -86,7 +86,6 @@ export class TicketCostControl extends BaseControl<TicketCostControlParams, Tick
         this.setState( {
             flights: tempFlightsList
         });
-        console.log(this.state.flights);
     }
 
     private onDropdownItemClick = (price: number) => {
