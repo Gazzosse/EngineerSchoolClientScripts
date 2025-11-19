@@ -5,6 +5,8 @@ import { $RequestManager } from "@docsvision/webclient/System/$RequestManager";
 import { OnSecondedEmployeeFieldChangeRequest } from "../Model/OnSecondedEmployeeFieldChangeRequest";
 import { SetExpensesRequest } from "../Model/SetExpensesRequest";
 import { SetExpensesResponse } from "../Model/SetExpensesResponse";
+import { GetTicketsCostsRequest } from "../Model/GetTicketsCostsRequest";
+import { GetTicketsCostsResponse } from "../Model/GetTicketsCostsResponse";
 
 export class ApplicationBusinessTripService extends ControllerBase implements IApplicationBusinessTripService {
     
@@ -29,6 +31,17 @@ export class ApplicationBusinessTripService extends ControllerBase implements IA
         return super.doRequest({
             controller: this.controllerName,
             action: "SetExpenses",
+            isApi: false,
+            method: HttpMethods.Post,
+            data: model,
+            options: { isShowOverlay: true },
+        });
+    }
+
+    GetTicketsCosts(model: GetTicketsCostsRequest): Promise<GetTicketsCostsResponse> {
+        return super.doRequest({
+            controller: this.controllerName,
+            action: "GetTicketsCosts",
             isApi: false,
             method: HttpMethods.Post,
             data: model,

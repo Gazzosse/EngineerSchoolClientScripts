@@ -4,6 +4,7 @@ import { Service } from "@docsvision/web/core/services";
 import { $ApplicationBusinessTripService } from "./Services/Interfaces/IApplicationBusinessTripService";
 import { ApplicationBusinessTripService } from "./Services/ApplicationBusinessTripService";
 import { $RequestManager } from "@docsvision/webclient/System/$RequestManager";
+import { TicketCostControl } from "./Controls/TicketCostControl/TicketCostControl";
 
 // Главная входная точка всего расширения
 // Данный файл должен импортировать прямо или косвенно все остальные файлы, 
@@ -18,5 +19,7 @@ extensionManager.registerExtension({
     layoutServices: [
         Service.fromFactory($ApplicationBusinessTripService, (services: $RequestManager) => new ApplicationBusinessTripService(services)),
     ],
-    controls: []
+    controls: [
+        { controlTypeName: "GetTicketCostControl", constructor: TicketCostControl }
+    ]
 })

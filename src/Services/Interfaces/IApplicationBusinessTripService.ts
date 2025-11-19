@@ -3,10 +3,13 @@ import { OnSecondedEmployeeFieldChangeResponse } from "../../Model/OnSecondedEmp
 import { OnSecondedEmployeeFieldChangeRequest } from "../../Model/OnSecondedEmployeeFieldChangeRequest";
 import { SetExpensesResponse } from "../../Model/SetExpensesResponse";
 import { SetExpensesRequest } from "../../Model/SetExpensesRequest";
+import { GetTicketsCostsRequest } from "../../Model/GetTicketsCostsRequest";
+import { GetTicketsCostsResponse } from "../../Model/GetTicketsCostsResponse";
 
 export interface IApplicationBusinessTripService {
     SetFieldsOnSecondedEmployeeFieldChange(model: OnSecondedEmployeeFieldChangeRequest): Promise<OnSecondedEmployeeFieldChangeResponse>
     SetExpenses(model: SetExpensesRequest): Promise<SetExpensesResponse>
+    GetTicketsCosts(model: GetTicketsCostsRequest): Promise<GetTicketsCostsResponse>
 }
 
 export type $ApplicationBusinessTripService = { activityPlanService: IApplicationBusinessTripService };
